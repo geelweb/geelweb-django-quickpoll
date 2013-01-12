@@ -1,0 +1,26 @@
+.survey-ribbon {
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    position: absolute;
+    top: 250px;
+    left: -56px;
+    background-color: #73b200;
+    padding: 0 45px 0 45px;
+    font-size: 18px;
+    line-height: 50px;
+    border-radius: 0 0 5px 5px;
+}
+
+.survey-ribbon a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.chart rect {
+    stroke: white;
+    fill: steelblue;
+}
+

@@ -1,0 +1,21 @@
+<div id="quickpoll_dialog" title="{{ poll.title }}">
+    <form id="quickpoll_form" action="/quickpoll/rest/poll/{{ poll.id }}" method="post" class="form-horizontal">
+        {% csrf_token %}
+
+        <input type="hidden" id="poll_id" name="poll_id" value="{{ poll.id }}" />
+
+        {% for question in questions %}
+            <div id="question_{{ question.id }}" class="question">
+                <strong>{{ question }}</strong>
+
+                {% for choice in question.choice_set.all %}
+                <label class="radio">
+                    <input type="radio" name="choice_{{ question.id }}" id="choice_{{ question.id }}_{{ choice.id }}" value="{{ choice.id }}" />
+                    {{ choice.choice}}
+                </label>
+                {% endfor %}
+            </div>
+        {% endfor %}
+
+    </form>
+</div
