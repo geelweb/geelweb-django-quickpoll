@@ -7,10 +7,6 @@
    to the question A is selected)
  * Works on non-django frontend
 
-## Demo
-
-A demo is available on [my sandbox](http://django-sandbox.geelweb.org)
-
 ## Installation
 
 From source:
