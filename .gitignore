@@ -1,0 +1,3 @@
+build/
+dist/
+src/django_quickpoll_app.egg-info/
