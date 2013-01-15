@@ -18,6 +18,7 @@ requirejs.config({
         'poll'                      : {deps: ['backbone']},
         'lib/view/ribbon'           : {deps: ['backbone']},
         'lib/view/poll'             : {deps: ['backbone', 'jquery-ui']},
+        'lib/collection/poll'       : {deps: ['backbone']},
     },
     deps: [
         'underscore',
@@ -26,27 +27,30 @@ requirejs.config({
 });
 
 define(function bootstrap(require) {
-    $(function() {
-        // Load the poll
-        // TODO get the first available poll
-        var PollModel = require('poll'),
-            poll = new PollModel({id: 1});
+    $(function () {
+        // Load the polls collection
+        var PollCollection = require('lib/collection/poll'),
+            polls = new PollCollection();
 
-        poll.fetch();
+        polls.fetch({
+            success: function (collection, response, options) {
+                // get the first poll
+                var poll = collection.first(),
 
-        // Load the poll view
-        var PollView = require('lib/view/poll'),
-            dialog = new PollView({
-                'model': poll,
-            });
+                    PollView = require('lib/view/poll'),
+                    dialog = new PollView({
+                        'model': poll,
+                    }),
 
-        // Load the ribbon
-        var RibbonView = require('lib/view/ribbon'),
-            ribbon = new RibbonView({
-                'dialog': dialog,
-            });
+                    RibbonView = require('lib/view/ribbon'),
+                    ribbon = new RibbonView({
+                        'dialog': dialog,
+                    });
 
-        ribbon.render();
+                // Load the ribbon
+                ribbon.render();
+            }
+        });
     });
 });
 
