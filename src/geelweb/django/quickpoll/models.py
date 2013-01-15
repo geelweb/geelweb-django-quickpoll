@@ -2,10 +2,6 @@
 #
 # License: MIT
 # vim: set expandtab tabstop=4 shiftwidth=4 softtabstop=4:
-#
-# pylint: disable=E1101
-# pylint: disable=W0232
-# pylint: disable=R0903
 
 """
 Quickpoll application models
