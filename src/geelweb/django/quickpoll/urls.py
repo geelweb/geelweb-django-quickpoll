@@ -9,6 +9,7 @@ from django.conf.urls.defaults import patterns, url
 from geelweb.django.quickpoll.views import PollRestView, PollRulesRestView, PollTemplateView
 
 urlpatterns = patterns('',
+    url(r'^rest/polls$', PollRestView.as_view()),
     url(r'^rest/poll/(?P<poll_id>\d+)$', PollRestView.as_view()),
     url(r'^rest/poll/(?P<poll_id>\d+)/rules$', PollRulesRestView.as_view()),
 

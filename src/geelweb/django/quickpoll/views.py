@@ -33,8 +33,15 @@ class PollRestView(View):
         """
         Gets the json representation of the poll
         """
-        poll = get_object_or_404(Poll, pk=kwargs['poll_id'])
-        return JSONResponse(PollSerializer(poll).data)
+        if 'poll_id' in kwargs:
+            poll = get_object_or_404(Poll, pk=kwargs['poll_id'])
+            return JSONResponse(PollSerializer(poll).data)
+
+        polls = Poll.objects.filter(active=True)
+        collection = []
+        for poll in polls:
+            collection.append(PollSerializer(poll).data)
+        return JSONResponse(collection)
 
     def post(self, request, *args, **kwargs):
         """
