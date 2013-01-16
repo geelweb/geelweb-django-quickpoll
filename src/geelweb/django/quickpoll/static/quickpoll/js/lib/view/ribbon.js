@@ -10,8 +10,8 @@ define(function() {
         className: function()
         {
             var type = 'ribbon';
-            if (this.options['type']) {
-                type = this.options['type'];
+            if (this.options['layout']) {
+                type = this.options['layout'];
             }
 
             return 'survey-' + type;
@@ -29,6 +29,10 @@ define(function() {
                 $('.open-poll').click(function() {
                     self.openPoll();
                 });
+            }
+
+            if (this.options['layout'] && this.options['layout'] == 'none') {
+                return;
             }
 
             // get container

@@ -35,7 +35,7 @@ define(function bootstrap(require) {
         var scripts = $('script[data-main$="quickpoll/js/main.js"]'),
             script = scripts[0],
             ribbon_container = script.getAttribute('data-container'),
-            ribbon_type = script.getAttribute('data-type'),
+            ribbon_layout = script.getAttribute('data-layout'),
             ribbon_label = script.getAttribute('data-label');
 
         polls.fetch({
@@ -51,7 +51,7 @@ define(function bootstrap(require) {
                     RibbonView = require('lib/view/ribbon'),
                     ribbon = new RibbonView({
                         'dialog': dialog,
-                        'type': ribbon_type,
+                        'layout': ribbon_layout,
                         'container': ribbon_container,
                         'label': ribbon_label,
                     });
