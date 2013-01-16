@@ -32,6 +32,12 @@ define(function bootstrap(require) {
         var PollCollection = require('lib/collection/poll'),
             polls = new PollCollection();
 
+        var scripts = $('script[data-main$="quickpoll/js/main.js"]'),
+            script = scripts[0],
+            ribbon_container = script.getAttribute('data-container'),
+            ribbon_type = script.getAttribute('data-type'),
+            ribbon_label = script.getAttribute('data-label');
+
         polls.fetch({
             success: function (collection, response, options) {
                 // get the first poll
@@ -45,6 +51,9 @@ define(function bootstrap(require) {
                     RibbonView = require('lib/view/ribbon'),
                     ribbon = new RibbonView({
                         'dialog': dialog,
+                        'type': ribbon_type,
+                        'container': ribbon_container,
+                        'label': ribbon_label,
                     });
 
                 // Load the ribbon

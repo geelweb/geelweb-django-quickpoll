@@ -7,8 +7,14 @@ define(function() {
     return Backbone.View.extend({
         template: _.template('<a href="#" class="open-poll"><%= label %></a>'),
 
-        attributes: {
-            'class': 'survey-ribbon',
+        className: function()
+        {
+            var type = 'ribbon';
+            if (this.options['type']) {
+                type = this.options['type'];
+            }
+
+            return 'survey-' + type;
         },
 
         events: {
@@ -17,11 +23,32 @@ define(function() {
 
         render: function()
         {
+            var self = this;
+            if($('.open-poll').length) {
+                // manage elm with open-poll class outside the view
+                $('.open-poll').click(function() {
+                    self.openPoll();
+                });
+            }
+
+            // get container
+            var container = 'body';
+            if (this.options['container']) {
+                container = this.options['container'];
+            }
+
+            // get label
+            var label = 'Survey';
+            if (this.options['label']) {
+                label = this.options['label'];
+            }
+
+            // render view
             this.$el.html(this.template({
-                'label': 'Sondage', // TODO I18N
+                'label': label
             }));
 
-            $('body').append(this.$el);
+            $(container).append(this.$el);
         },
 
         openPoll: function()
