@@ -57,6 +57,18 @@ Add the following code to your templates to display the poll ribbon.
     <link href="{{ STATIC_URL }}quickpoll/css/main.css" rel="stylesheet" media="screen" />
     <script data-main="{{ STATIC_URL }}quickpoll/js/main.js" src="{{ STATIC_URL }}quickpoll/js/lib/vendor/require.js"></script>
 
+Add attributes to the `script` tag to customize the layout:
+
+ * data-layout: type of layout, "ribbon", "button" or "none". Default to "ribbon"
+ * data-container: css selector to defines the elements where append the ribbon. Append to `body` by
+   default. All jquery compliant selectors are availables.
+ * data-label: the text to display. Default to "Survey"
+
+If data-layout is defined to "none" you have to add the link to open the
+quickpoll window yourself. ex:
+
+    <a class="btn-quickpoll open-poll" href="#">Survey</a>
+
 ## Todo
 
  * Improve admin
