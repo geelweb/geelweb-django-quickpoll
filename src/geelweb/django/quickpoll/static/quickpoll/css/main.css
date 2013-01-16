@@ -7,11 +7,16 @@
     position: absolute;
     top: 250px;
     left: -56px;
-    background-color: #73b200;
     padding: 0 45px 0 45px;
     font-size: 18px;
     line-height: 50px;
     border-radius: 0 0 5px 5px;
+    background-color: #5bb75b;
+    background-image: -moz-linear-gradient(center top, #73b200, #73b200);
+    background-repeat: repeat-x;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    color: #fff;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 }
 
 .survey-ribbon a {
@@ -19,8 +24,16 @@
     color: #fff;
 }
 
-.chart rect {
-    stroke: white;
-    fill: steelblue;
+.btn-quickpoll {
+    background-color: #5bb75b;
+    background-image: -moz-linear-gradient(center top, #73b200, #73a100);
+    background-repeat: repeat-x;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    color: #fff;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 }
 
+.btn-quickpoll:hover {
+    color: #fff;
+    background-color: #73a100;
+}
