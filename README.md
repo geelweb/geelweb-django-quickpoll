@@ -7,6 +7,10 @@
    to the question A is selected)
  * Works on non-django frontend
 
+## Demo
+
+A demo is available [here](http://django-sandbox.geelweb.org/quickpoll-app)
+
 ## Installation
 
 From source:
