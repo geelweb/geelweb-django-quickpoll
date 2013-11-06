@@ -21,7 +21,7 @@ long_desc = open('README.md').read()
 
 if __name__ == "__main__":
     setup(
-        name="django quickpoll app",
+        name="django-quickpoll",
         version=__version__,
         description="A django app to manage polls",
         long_description=long_desc,
